@@ -119,3 +119,6 @@ Dane przekrojowe (brak wymiaru czasowego), po 81 defaultów w val i test, PD po 
 nie jest statystycznym oszacowaniem częstości defaultów w próbie, a wyjaśnienia opisują model,
 nie przyczynowość. Pełna lista w [MODEL\_CARD.md](MODEL_CARD.md#ograniczenia-i-ryzyka).
 
+## Opis użycia AI
+
+W projekcie korzystaliśmy z modeli sztucznej inteligencji. Zakres metod wzorowaliśmy na materiale z laboratoriów, a asystent na tej podstawie napisał większość kodu notebooka oraz stworzył szablony plików README.md, requirements.txt itp. Nasz wkład: [prototyp potoku wstępnego przetworzenia danych, poprawianie suboptymalnych rozwiązań proponowanych przez AI (np. przeciwdziałanie przeuczeniu przy doborze hiperparametrów regresji), komentarze interpretacyjne w markdownie, intensywna praca z notebookiem, weryfikacja wyników]. Rozumiemy zastosowane metody i potrafimy omówić wyniki, ale kod i dokumentacja zostały wygenerowane głównie przez AI.
