@@ -1,0 +1,54 @@
+{
+  "seed": 42,
+  "target_pd": 0.04,
+  "margin": 0.1,
+  "lgd": 0.45,
+  "wykluczone": [],
+  "data": "zbiór_3.csv",
+  "rating_bins": [
+    0.0,
+    0.01,
+    0.02,
+    0.05,
+    0.08,
+    0.12,
+    0.2,
+    1.0
+  ],
+  "rating_labels": [
+    "AAA",
+    "AA",
+    "A",
+    "BBB",
+    "BB",
+    "B",
+    "CCC"
+  ],
+  "lr_params": {
+    "clf__C": 0.03,
+    "clf__penalty": "l1",
+    "clf__solver": "liblinear"
+  },
+  "xgb_params": {
+    "clf__colsample_bytree": 0.9641592812938626,
+    "clf__gamma": 0,
+    "clf__learning_rate": 0.03570795401675544,
+    "clf__max_depth": 4,
+    "clf__min_child_weight": 5,
+    "clf__n_estimators": 287,
+    "clf__reg_lambda": 28.134388372872102,
+    "clf__subsample": 0.7177795568278342
+  },
+  "kalibracja": {
+    "LR": {
+      "metoda": "Platt",
+      "delta_4pct": -1.4734403127739766,
+      "prog_valid": 0.035
+    },
+    "XGB": {
+      "metoda": "bez kalibracji",
+      "delta_4pct": -1.4207929438315063,
+      "prog_valid": 0.05
+    }
+  }
+}

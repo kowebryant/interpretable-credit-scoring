@@ -1,0 +1,21 @@
+# Projekt 1 – scoring/rating PD
+#
+# Jedyne wersje zapisane w wynikach notebooka: Python 3.12.16, scikit-learn 1.9.1.
+# Pozostałe biblioteki podano jako dolne ograniczenia wynikające z użytych funkcji
+# (np. OneHotEncoder(min_frequency, sparse_output), set_config(transform_output="pandas"),
+# scipy.stats.binomtest, shap.plots.beeswarm). Aby odtworzyć dokładne środowisko,
+# w działającym środowisku wykonaj:  pip freeze > requirements-lock.txt
+
+numpy>=1.26
+pandas>=2.0
+scipy>=1.11
+scikit-learn>=1.3        # notebook uruchomiony na 1.9.1
+xgboost>=2.0
+shap>=0.44
+lime>=0.2.0.1
+matplotlib>=3.7
+
+# uruchamianie notebooka (display(), kernel)
+ipython>=8.0
+ipykernel>=6.0
+notebook>=7.0
