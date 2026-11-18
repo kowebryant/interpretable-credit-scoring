@@ -31,9 +31,7 @@ poprawą kalibracji statystycznej (szczegóły w model card).
 ├── zbiór_3.csv                 # dane
 ├── MODEL_CARD.md               # karta modelu
 ├── requirements.txt            # zależności
-
 ├── raport techniczny.pdf
-
 ├── prezentacja nietechniczna.pdf
 ├── README.md
 └── artifacts/                  # tworzone przez notebook przy uruchomieniu
