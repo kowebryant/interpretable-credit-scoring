@@ -28,8 +28,8 @@ poprawą kalibracji statystycznej (szczegóły w model card).
 ```
 .
 ├── final.ipynb   # cały projekt: dane → modele → wyjaśnienia → ocena końcowa
-├── zbiór\\\_3.csv                 # dane
-├── MODEL\\\_CARD.md               # karta modelu
+├── zbiór_3.csv                 # dane
+├── MODEL_CARD.md               # karta modelu
 ├── requirements.txt            # zależności
 
 ├── raport techniczny.pdf
@@ -38,13 +38,13 @@ poprawą kalibracji statystycznej (szczegóły w model card).
 ├── README.md
 └── artifacts/                  # tworzone przez notebook przy uruchomieniu
     ├── splits.csv              # podział train/val/test (indeksy wierszy)
-    ├── config\\\_wyniki.json      # parametry, metody kalibracji, δ, progi
-    ├── metryki\\\_test.csv
-    ├── backtest\\\_LR\\\_test.csv, backtest\\\_XGB\\\_test.csv
-    ├── decyzje\\\_test.csv
-    ├── audyt\\\_podgrup\\\_test.csv
-    ├── psi\\\_csi.csv
-    └── predykcje\\\_test.csv
+    ├── config_wyniki.json      # parametry, metody kalibracji, δ, progi
+    ├── metryki_test.csv
+    ├── backtest_LR_test.csv, backtest_XGB_test.csv
+    ├── decyzje_test.csv
+    ├── audyt_podgrup_test.csv
+    ├── psi_csi.csv
+    └── predykcje_test.csv
 
 ```
 
@@ -54,7 +54,7 @@ Notebook uruchomiono na Pythonie 3.12.
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate          # Windows: .venv\\\\\\\\Scripts\\\\\\\\activate
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
@@ -64,11 +64,11 @@ poleceniem `pip freeze > requirements-lock.txt`.
 
 ## Dane
 
-Plik `zbiór\\\\\\\_3.csv` musi leżeć w katalogu, z którego uruchamiany jest notebook (ścieżka
-`DATA\\\\\\\_PATH` w pierwszej komórce). Oczekiwany format: 3000 wierszy, 223 kolumny, target
+Plik `zbiór_3.csv` musi leżeć w katalogu, z którego uruchamiany jest notebook (ścieżka
+`DATA_PATH` w pierwszej komórce). Oczekiwany format: 3000 wierszy, 223 kolumny, target
 `default` (0/1, 405 defaultów = 13,5%), 217 cech numerycznych i 5 kategorycznych
-(`szczegolnaFormaPrawna\\\\\\\_Symbol`, `formaWlasnosci\\\\\\\_Symbol`, `pkdKod`, `schemat\\\\\\\_wsk\\\\\\\_bilans`,
-`schemat\\\\\\\_wsk\\\\\\\_rzis`). Brak w nich identyfikatora podmiotu i ekspozycji (EAD = 1).
+(`szczegolnaFormaPrawna_Symbol`, `formaWlasnosci_Symbol`, `pkdKod`, `schemat_wsk_bilans`,
+`schemat_wsk_rzis`). Brak w nich identyfikatora podmiotu i ekspozycji (EAD = 1).
 
 ## Uruchomienie
 
@@ -78,7 +78,7 @@ jupyter notebook final.ipynb
 
 Uruchom wszystkie komórki od góry (*Run All*). Notebook jest deterministyczny (`SEED = 42`).
 
-**Tryb szybki.** Pierwsza komórka ustawia `os.environ\\\\\\\["NB\\\\\\\_FAST"] = "0"` (pełne uruchomienie:
+**Tryb szybki.** Pierwsza komórka ustawia `os.environ["NB_FAST"] = "0"` (pełne uruchomienie:
 40 losowań XGBoost, 20 seedów LIME, 500 replikacji bootstrapu). Do szybkiego sprawdzenia, czy
 wszystko działa, zmień tę wartość w pierwszej komórce na `"1"`; wyniki będą wtedy inne niż
 w model card.
@@ -103,13 +103,13 @@ Zbiór testowy nie bierze udziału w żadnej decyzji (strojenie – CV na train;
 
 ## Uwagi praktyczne
 
-* **Ostatnia komórka nadpisuje `MODEL\\\\\\\_CARD.md`** automatycznie wygenerowanym szkicem
-(`open("MODEL\\\\\\\_CARD.md", "w")`). Po ponownym uruchomieniu notebooka przywróć uzupełnioną
-wersję z repozytorium (np. `git checkout MODEL\\\\\\\_CARD.md`) albo zmień nazwę pliku wyjściowego
+* **Ostatnia komórka nadpisuje `MODEL_CARD.md`** automatycznie wygenerowanym szkicem
+(`open("MODEL_CARD.md", "w")`). Po ponownym uruchomieniu notebooka przywróć uzupełnioną
+wersję z repozytorium (np. `git checkout MODEL_CARD.md`) albo zmień nazwę pliku wyjściowego
 w tej komórce.
-* `assert DATA\\\\\\\_PATH` w pierwszej komórce nie sprawdza, czy plik istnieje; brak
-`zbiór\\\\\\\_3.csv` objawi się dopiero błędem `FileNotFoundError` przy wczytywaniu danych.
-* XGBoost używa `n\\\\\\\_jobs=4`; strojenie i CV działają jednowątkowo (`n\\\\\\\_jobs=1` w searchach),
+* `assert DATA_PATH` w pierwszej komórce nie sprawdza, czy plik istnieje; brak
+`zbiór_3.csv` objawi się dopiero błędem `FileNotFoundError` przy wczytywaniu danych.
+* XGBoost używa `n_jobs=4`; strojenie i CV działają jednowątkowo (`n_jobs=1` w searchach),
 więc pełne uruchomienie może trwać dłużej niż tryb szybki.
 * Pipeline'y są cache'owane w `artifacts/cache`; po zmianie kodu przetwarzania cech usuń ten
 katalog.
